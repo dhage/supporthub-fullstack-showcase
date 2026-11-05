@@ -1,96 +1,125 @@
-# SupporthubFullstackShowcase
+# SupportHub Fullstack Showcase
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+Eine moderne Fullstack-Supportplattform als Portfolio- und Lernprojekt.
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+## Projektziele
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/intro#learn-nx?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+Dieses Projekt dient dazu, moderne Fullstack- und DevSecOps-Praktiken in einer realitätsnahen Anwendung umzusetzen.
 
-## Run tasks
+Geplant sind unter anderem:
 
-To run tasks with Nx use:
+- Ticketverwaltung
+- Benutzerverwaltung
+- Rollen- und Rechtesystem
+- Knowledge Base
+- Authentifizierung und Autorisierung
+- REST API
+- Automated Testing
+- CI/CD Pipelines
+- Security Scans
 
-```sh
-npx nx <target> <project-name>
+## Tech Stack
+
+### Frontend
+
+- Angular
+- TypeScript
+- Tailwind CSS (geplant)
+- Angular Material (geplant)
+
+### Backend
+
+- NestJS
+- TypeScript
+- Prisma ORM (geplant)
+
+### Datenbank
+
+- PostgreSQL (geplant)
+
+### Qualität & Testing
+
+- ESLint
+- Jest
+- Playwright
+
+### DevSecOps
+
+- Docker
+- GitHub Actions
+- Dependabot
+- CodeQL
+- Trivy
+
+## Workspace Struktur
+
+```text
+web/        Angular Frontend
+web-e2e/    Playwright Tests
+
+api/        NestJS Backend
+api-e2e/    Backend Integration Tests
+
+docs/               Projektdokumentation
+docker/             Docker-Konfiguration
+infrastructure/     Infrastruktur und Deployment
 ```
 
-For example:
+## Lokale Entwicklung
 
-```sh
-npx nx build myproject
+Frontend starten:
+
+```bash
+npx nx serve web
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+Backend starten:
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-To install a new plugin you can use the `nx add` command. Here's an example of adding the React plugin:
-```sh
-npx nx add @nx/react
+```bash
+npx nx serve api
 ```
 
-Use the plugin's generator to create new projects. For example, to create a new React app or library:
+Frontend:
 
-```sh
-# Generate an app
-npx nx g @nx/react:app demo
-
-# Generate a library
-npx nx g @nx/react:lib some-lib
+```text
+http://localhost:4200
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+Backend:
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Set up CI!
-
-### Step 1
-
-To connect to Nx Cloud, run the following command:
-
-```sh
-npx nx connect
+```text
+http://localhost:3000/api
 ```
 
-Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
+## Roadmap
 
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### Phase 1
 
-### Step 2
+- [x] GitHub Repository
+- [x] Nx Workspace
+- [x] Angular Frontend
+- [x] NestJS Backend
+- [ ] PostgreSQL
+- [ ] Prisma
 
-Use the following command to configure a CI workflow for your workspace:
+### Phase 2
 
-```sh
-npx nx g ci-workflow
-```
+- [ ] Benutzerverwaltung
+- [ ] Authentifizierung
+- [ ] Rollen & Rechte
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### Phase 3
 
-## Install Nx Console
+- [ ] Ticketsystem
+- [ ] Kommentare
+- [ ] Dashboard
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+### Phase 4
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [ ] CI/CD
+- [ ] DevSecOps
+- [ ] Security Scanning
 
-## Useful links
+## Lizenz
 
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/getting-started/intro#learn-nx?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+MIT License
