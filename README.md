@@ -1,22 +1,22 @@
 # SupportHub Fullstack Showcase
 
-Eine moderne Fullstack-Supportplattform als Portfolio- und Lernprojekt.
+A modern full-stack support platform built as a portfolio and learning project.
 
-## Projektziele
+## Project Goals
 
-Dieses Projekt dient dazu, moderne Fullstack- und DevSecOps-Praktiken in einer realitätsnahen Anwendung umzusetzen.
+The purpose of this project is to implement modern full-stack development and DevSecOps practices in a realistic application.
 
-Geplant sind unter anderem:
+Planned features include:
 
-- Ticketverwaltung
-- Benutzerverwaltung
-- Rollen- und Rechtesystem
+- Ticket Management
+- User Management
+- Role-Based Access Control
 - Knowledge Base
-- Authentifizierung und Autorisierung
+- Authentication and Authorization
 - REST API
 - Automated Testing
 - CI/CD Pipelines
-- Security Scans
+- Security Scanning
 
 ## Tech Stack
 
@@ -24,20 +24,20 @@ Geplant sind unter anderem:
 
 - Angular
 - TypeScript
-- Tailwind CSS (geplant)
-- Angular Material (geplant)
+- Tailwind CSS (planned)
+- Angular Material (planned)
 
 ### Backend
 
 - NestJS
-- TypeScript
-- Prisma ORM (geplant)
+- Prisma ORM
 
-### Datenbank
+### Database
 
-- PostgreSQL (geplant)
+- PostgreSQL
+- Docker Compose
 
-### Qualität & Testing
+### Quality & Testing
 
 - ESLint
 - Jest
@@ -51,32 +51,52 @@ Geplant sind unter anderem:
 - CodeQL
 - Trivy
 
-## Workspace Struktur
+## Workspace Structure
 
 ```text
-web/        Angular Frontend
-web-e2e/    Playwright Tests
+web/                Angular frontend
+web-e2e/            Playwright tests
 
-api/        NestJS Backend
-api-e2e/    Backend Integration Tests
+api/                NestJS backend
+api-e2e/            Backend integration tests
 
-docs/               Projektdokumentation
-docker/             Docker-Konfiguration
-infrastructure/     Infrastruktur und Deployment
+prisma/             Prisma schema & migrations
+
+docker/             Docker infrastructure
+docs/               Project documentation
+infrastructure/     Deployment & infrastructure
 ```
 
-## Lokale Entwicklung
+## Architecture
 
-Frontend starten:
+```text
+Angular
+   ↓
+NestJS
+   ↓
+Prisma ORM
+   ↓
+PostgreSQL
+```
+
+## Local Development
+
+Start the frontend:
 
 ```bash
 npx nx serve web
 ```
 
-Backend starten:
+Start the backend:
 
 ```bash
 npx nx serve api
+```
+
+Start PostgreSQL:
+
+```bash
+docker compose -f docker/docker-compose.yml up -d
 ```
 
 Frontend:
@@ -93,33 +113,44 @@ http://localhost:3000/api
 
 ## Roadmap
 
-### Phase 1
+### Phase 1 - Foundation
 
 - [x] GitHub Repository
 - [x] Nx Workspace
 - [x] Angular Frontend
 - [x] NestJS Backend
-- [ ] PostgreSQL
-- [ ] Prisma
+- [x] PostgreSQL via Docker
+- [x] Prisma ORM
+- [x] Initial Database Migration
 
-### Phase 2
+### Phase 2 - Domain Model
 
-- [ ] Benutzerverwaltung
-- [ ] Authentifizierung
-- [ ] Rollen & Rechte
+- [ ] User Management
+- [ ] Ticket Entity
+- [ ] Comment Entity
+- [ ] Shared Types Library
 
-### Phase 3
+### Phase 3 - Authentication & Authorization
 
-- [ ] Ticketsystem
-- [ ] Kommentare
+- [ ] Login
+- [ ] JWT Authentication
+- [ ] Role-Based Access Control
+
+### Phase 4 - Support Features
+
+- [ ] Ticket Management
+- [ ] Comments
 - [ ] Dashboard
+- [ ] Knowledge Base
 
-### Phase 4
+### Phase 5 - DevSecOps
 
-- [ ] CI/CD
-- [ ] DevSecOps
-- [ ] Security Scanning
+- [ ] GitHub Actions
+- [ ] Dependabot
+- [ ] CodeQL
+- [ ] Trivy
+- [ ] SonarQube
 
-## Lizenz
+## License
 
 MIT License
