@@ -2,7 +2,9 @@
   "name": "@supporthub-fullstack-showcase/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "postinstall": "prisma skills sync || exit 0"
+  },
   "private": true,
   "devDependencies": {
     "@angular-devkit/core": "~22.2.0",
@@ -63,7 +65,9 @@
     "@nestjs/common": "^11.0.0",
     "@nestjs/core": "^11.0.0",
     "@nestjs/platform-express": "^11.0.0",
+    "@prisma/client": "^7.10.1",
     "axios": "^1.6.0",
+    "prisma": "^7.10.1",
     "reflect-metadata": "^0.2.0",
     "rxjs": "~7.8.0"
   }
