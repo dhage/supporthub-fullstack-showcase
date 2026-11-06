@@ -1,1 +1,1 @@
-export class Ticket {}
+export { Ticket } from '@supporthub-fullstack-showcase/shared-types';
