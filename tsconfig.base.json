@@ -20,6 +20,9 @@
     "paths": {
       "@supporthub-fullstack-showcase/shared-types": [
         "./shared-types/src/index.ts"
+      ],
+      "@supporthub-fullstack-showcase/data-access-prisma": [
+        "./data-access-prisma/src/index.ts"
       ]
     }
   },
