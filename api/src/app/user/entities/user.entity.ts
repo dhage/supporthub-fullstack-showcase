@@ -1,0 +1,1 @@
+export { User } from '@supporthub-fullstack-showcase/shared-types';

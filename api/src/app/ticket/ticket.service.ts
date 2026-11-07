@@ -1,54 +1,44 @@
 import { Injectable } from '@nestjs/common';
 import { CreateTicketDto } from './dto/create-ticket.dto';
 import { UpdateTicketDto } from './dto/update-ticket.dto';
-import {
-  Ticket,
-  TicketStatus,
-} from '@supporthub-fullstack-showcase/shared-types';
 import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class TicketService {
-  private tickets: Ticket[] = [];
   constructor(
     private readonly prisma: PrismaService,
   ) {}
 
-  create(createTicketDto: CreateTicketDto) {
-    const ticket: Ticket = {
-      id: crypto.randomUUID(),
-      title: createTicketDto.title,
-      description: createTicketDto.description,
-      status: createTicketDto.status ?? TicketStatus.OPEN,
-      createdAt: new Date(),
-      createdById: createTicketDto.createdById,
-    };
-
-    this.tickets.push(ticket);
-
-    return ticket;
+  async create(createTicketDto: CreateTicketDto) {
+    return this.prisma.ticket.create({
+      data: createTicketDto,
+    });
   }
 
   async findAll() {
     return this.prisma.ticket.findMany();
   }
 
-  findOne(id: string) {
-    return this.tickets.find((ticket) => ticket.id === id);
+  async findOne(id: string) {
+    return this.prisma.ticket.findUnique({
+      where: { id },
+    });
   }
 
-  update(id: string, updateTicketDto: UpdateTicketDto) {
-    return {
+  async update(id: string, updateTicketDto: UpdateTicketDto) {
+    return this.prisma.ticket.update({
+      where: {
+        id,
+      },
+      data: updateTicketDto,
+    });
+  }
+
+async remove(id: string) {
+  return this.prisma.ticket.delete({
+    where: {
       id,
-      ...updateTicketDto,
-    };
-  }
-
-  remove(id: string) {
-    this.tickets = this.tickets.filter((ticket) => ticket.id !== id);
-
-    return {
-      message: `Ticket ${id} deleted`,
-    };
-  }
+    },
+  });
+}
 }
