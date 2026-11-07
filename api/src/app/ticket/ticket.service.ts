@@ -5,10 +5,14 @@ import {
   Ticket,
   TicketStatus,
 } from '@supporthub-fullstack-showcase/shared-types';
+import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class TicketService {
   private tickets: Ticket[] = [];
+  constructor(
+    private readonly prisma: PrismaService,
+  ) {}
 
   create(createTicketDto: CreateTicketDto) {
     const ticket: Ticket = {
@@ -25,8 +29,8 @@ export class TicketService {
     return ticket;
   }
 
-  findAll() {
-    return this.tickets;
+  async findAll() {
+    return this.prisma.ticket.findMany();
   }
 
   findOne(id: string) {
